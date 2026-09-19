@@ -24,7 +24,7 @@ import com.klsjnh.lowcode011.domain.records.ResultKey011;
 import com.klsjnh.lowcode011.domain.JulyMetadataRepository;
 import com.klsjnh.lowcode011.domain.JulyMetadataVersion;
 import com.klsjnh.lowcode011.domain.JulyMetadataVersionRepository;
-import com.klsjnh.lowcode011.domain.MetadataDataWriterPort;
+import com.klsjnh.lowcode011.domain.DialectResolverPort;
 import com.klsjnh.lowcode011.application.JulyMetadataUseCase;
 import com.klsjnh.lowcode011.application.MetadataValueValidator;
 
@@ -73,7 +73,7 @@ public class JulyMetadataDataSyncUseCase {
     /**
      * Data writer.
      */
-    private final MetadataDataWriterPort dataWriter;
+    private final DialectResolverPort dialectResolverPort;
 
     /**
      * Business modeling executor (source read + dialect paging).
@@ -98,12 +98,12 @@ public class JulyMetadataDataSyncUseCase {
      */
     public JulyMetadataDataSyncUseCase(JulyMetadataUseCase metadataUseCase,
             JulyMetadataRepository metadataRepository, JulyMetadataVersionRepository versionRepository,
-            MetadataDataWriterPort dataWriter, JulyBusinessModelingUseCase businessModelingUseCase,
+            DialectResolverPort dialectResolverPort, JulyBusinessModelingUseCase businessModelingUseCase,
             MetadataValueValidator valueValidator) {
         this.metadataUseCase = metadataUseCase;
         this.metadataRepository = metadataRepository;
         this.versionRepository = versionRepository;
-        this.dataWriter = dataWriter;
+        this.dialectResolverPort = dialectResolverPort;
         this.businessModelingUseCase = businessModelingUseCase;
         this.valueValidator = valueValidator;
     }
@@ -149,7 +149,7 @@ public class JulyMetadataDataSyncUseCase {
             throw BusinessException.badRequest("sync validation failed: " + String.join("; ", errors));
         }
 
-        int processed = dataWriter.upsert(latest.physicalTable(), metadata.businessField(), rows);
+        int processed = dialectResolverPort.resolve().dataWriter().upsert(latest.physicalTable(), metadata.businessField(), rows);
         boolean init = Boolean.TRUE.equals(forceInit) || !metadataRepository.isSynced(metadata.objectName());
 
         metadataRepository.markSynced(metadata.objectName());

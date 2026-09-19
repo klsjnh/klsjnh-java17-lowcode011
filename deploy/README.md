@@ -1,6 +1,6 @@
 # deploy — 容器化部署（docker compose）
 
-> 机制与决策的唯一家在 [docs/infrastructure011/020.topic-deploy-docker.md](../docs/infrastructure011/020.topic-deploy-docker.md)。
+> 机制与决策的唯一家在 框架仓库的部署文档。
 > **编排约定对齐服务器既有 `/klsjnh/docker/compose.yaml`**：`networks: service011` + `ports` 映射 + `logging`/`healthcheck`。
 
 ## 最快上手（服务器）

@@ -23,8 +23,7 @@ import com.klsjnh.lowcode011.domain.JulyMetadataField;
 import com.klsjnh.lowcode011.domain.JulyMetadataRepository;
 import com.klsjnh.lowcode011.domain.JulyMetadataService;
 import com.klsjnh.lowcode011.domain.JulyMetadataSource;
-import com.klsjnh.lowcode011.domain.MetadataDdlExecutorPort;
-import com.klsjnh.lowcode011.domain.MetadataDdlGeneratorPort;
+import com.klsjnh.lowcode011.domain.DialectResolverPort;
 import com.klsjnh.lowcode011.domain.TemplateCodec;
 import com.klsjnh.lowcode011.domain.enums.FieldType011;
 import com.klsjnh.lowcode011.domain.enums.ObjectType011;
@@ -97,12 +96,8 @@ public class JulyMetadataTemplateUseCase {
     /**
      * DDL generator (preview of an unsaved template).
      */
-    private final MetadataDdlGeneratorPort ddlGenerator;
+    private final DialectResolverPort dialectResolverPort;
 
-    /**
-     * DDL executor (table existence for the plan).
-     */
-    private final MetadataDdlExecutorPort ddlExecutor;
 
     /**
      * Template codecs by format.
@@ -122,13 +117,12 @@ public class JulyMetadataTemplateUseCase {
      */
     public JulyMetadataTemplateUseCase(JulyMetadataUseCase metadataUseCase, JulyMetadataRepository repository,
             JulyMetadataDesignerUseCase designerUseCase, JulyMetadataPublishUseCase publishUseCase,
-            MetadataDdlGeneratorPort ddlGenerator, MetadataDdlExecutorPort ddlExecutor, List<TemplateCodec> codecs) {
+            DialectResolverPort dialectResolverPort, List<TemplateCodec> codecs) {
         this.metadataUseCase = metadataUseCase;
         this.repository = repository;
         this.designerUseCase = designerUseCase;
         this.publishUseCase = publishUseCase;
-        this.ddlGenerator = ddlGenerator;
-        this.ddlExecutor = ddlExecutor;
+        this.dialectResolverPort = dialectResolverPort;
 
         for (TemplateCodec codec : codecs) {
             this.codecs.put(codec.format(), codec);
@@ -343,10 +337,10 @@ public class JulyMetadataTemplateUseCase {
             String objectName = text(metaData.get(MetaDtoKey011.OBJECT_NAME));
             List<JulyMetadataField> fields = toFields(asList(template.get(MetaDtoKey011.FIELD_DATA)));
             String table = objectName;
-            boolean exists = ddlExecutor.tableExists(table);
+            boolean exists = dialectResolverPort.resolve().ddlExecutor().tableExists(table);
             report.put(ResultKey011.PLAN, exists ? "alter" : "create");
             try {
-                report.put(ResultKey011.PREVIEW_DDL, ddlGenerator.generateCreate(table, text(metaData.get(MetaDtoKey011.DESCRIPTION)), fields,
+                report.put(ResultKey011.PREVIEW_DDL, dialectResolverPort.resolve().ddlGenerator().generateCreate(table, text(metaData.get(MetaDtoKey011.DESCRIPTION)), fields,
                         text(metaData.get(MetaDtoKey011.BUSINESS_FIELD))));
             } catch (IllegalArgumentException ex) {
                 report.put(ResultKey011.VALID, false);

@@ -21,7 +21,7 @@ import com.klsjnh.common.page.PageResult011;
 import com.klsjnh.lowcode011.domain.JulyMetadata;
 import com.klsjnh.lowcode011.domain.JulyMetadataField;
 import com.klsjnh.lowcode011.domain.JulyMetadataRepository;
-import com.klsjnh.lowcode011.domain.MetadataDdlGeneratorPort;
+import com.klsjnh.lowcode011.domain.DialectResolverPort;
 import com.klsjnh.lowcode011.domain.records.MetaDtoKey011;
 import com.klsjnh.lowcode011.domain.records.MetadataContent;
 import com.klsjnh.lowcode011.domain.records.MetadataContentCodec;
@@ -60,20 +60,20 @@ public class JulyMetadataDesignerUseCase {
     /**
      * DDL generator (shared with publish).
      */
-    private final MetadataDdlGeneratorPort ddlGenerator;
+    private final DialectResolverPort dialectResolverPort;
 
     /**
      * Create the use case.
      *
      * @param metadataUseCase metadata CRUD use case
      * @param repository      metadata repository
-     * @param ddlGenerator    DDL generator
+     * @param dialectResolverPort dialect resolver
      */
     public JulyMetadataDesignerUseCase(JulyMetadataUseCase metadataUseCase, JulyMetadataRepository repository,
-            MetadataDdlGeneratorPort ddlGenerator) {
+            DialectResolverPort dialectResolverPort) {
         this.metadataUseCase = metadataUseCase;
         this.repository = repository;
-        this.ddlGenerator = ddlGenerator;
+        this.dialectResolverPort = dialectResolverPort;
     }
 
     /**
@@ -166,7 +166,7 @@ public class JulyMetadataDesignerUseCase {
         JulyMetadata metadata = metadataUseCase.getByObjectName(objectName);
 
         try {
-            return ddlGenerator.generateCreate(metadata.objectName(), metadata.description(),
+            return dialectResolverPort.resolve().ddlGenerator().generateCreate(metadata.objectName(), metadata.description(),
                     metadata.fields(), metadata.businessField());
         } catch (IllegalArgumentException ex) {
             throw BusinessException.badRequest(ex.getMessage());

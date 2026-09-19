@@ -25,8 +25,7 @@ import com.klsjnh.lowcode011.domain.JulyMetadataField;
 import com.klsjnh.lowcode011.domain.JulyMetadataRepository;
 import com.klsjnh.lowcode011.domain.JulyMetadataVersion;
 import com.klsjnh.lowcode011.domain.JulyMetadataVersionRepository;
-import com.klsjnh.lowcode011.domain.MetadataDdlExecutorPort;
-import com.klsjnh.lowcode011.domain.MetadataDdlGeneratorPort;
+import com.klsjnh.lowcode011.domain.DialectResolverPort;
 import com.klsjnh.lowcode011.domain.records.MetaDtoKey011;
 import com.klsjnh.domain.shared.EntityId;
 import com.klsjnh.lowcode011.application.JulyMetadataUseCase;
@@ -77,12 +76,8 @@ public class JulyMetadataPublishUseCase {
     /**
      * DDL generator.
      */
-    private final MetadataDdlGeneratorPort ddlGenerator;
+    private final DialectResolverPort dialectResolverPort;
 
-    /**
-     * DDL executor.
-     */
-    private final MetadataDdlExecutorPort ddlExecutor;
 
     /**
      * Current operator port (snapshot publisher).
@@ -104,13 +99,12 @@ public class JulyMetadataPublishUseCase {
      * @param ddlExecutor        DDL executor
      */
     public JulyMetadataPublishUseCase(JulyMetadataUseCase metadataUseCase, JulyMetadataRepository metadataRepository,
-            JulyMetadataVersionRepository versionRepository, MetadataDdlGeneratorPort ddlGenerator,
-            MetadataDdlExecutorPort ddlExecutor, CurrentOperatorPort currentOperatorPort) {
+            JulyMetadataVersionRepository versionRepository, DialectResolverPort dialectResolverPort,
+            CurrentOperatorPort currentOperatorPort) {
         this.metadataUseCase = metadataUseCase;
         this.metadataRepository = metadataRepository;
         this.versionRepository = versionRepository;
-        this.ddlGenerator = ddlGenerator;
-        this.ddlExecutor = ddlExecutor;
+        this.dialectResolverPort = dialectResolverPort;
         this.currentOperatorPort = currentOperatorPort;
     }
 
@@ -131,7 +125,7 @@ public class JulyMetadataPublishUseCase {
 
         if (ddl != null) {
             try {
-                ddlExecutor.execute(ddl);
+                dialectResolverPort.resolve().ddlExecutor().execute(ddl);
             } catch (IllegalStateException ex) {
                 throw BusinessException.badRequest(ex.getMessage());
             } catch (RuntimeException ex) {
@@ -174,17 +168,17 @@ public class JulyMetadataPublishUseCase {
      */
     private String buildDdl(String table, JulyMetadata metadata) {
         try {
-            if (!ddlExecutor.tableExists(table)) {
-                return ddlGenerator.generateCreate(table, metadata.description(), metadata.fields(),
+            if (!dialectResolverPort.resolve().ddlExecutor().tableExists(table)) {
+                return dialectResolverPort.resolve().ddlGenerator().generateCreate(table, metadata.description(), metadata.fields(),
                         metadata.businessField());
             }
 
-            Set<String> existing = ddlExecutor.columnsOf(table);
+            Set<String> existing = dialectResolverPort.resolve().ddlExecutor().columnsOf(table);
             List<JulyMetadataField> missing = metadata.fields().stream()
                     .filter(field -> !existing.contains(field.fieldCode().toLowerCase(Locale.ROOT)))
                     .toList();
 
-            return missing.isEmpty() ? null : ddlGenerator.generateAddColumns(table, missing);
+            return missing.isEmpty() ? null : dialectResolverPort.resolve().ddlGenerator().generateAddColumns(table, missing);
         } catch (IllegalArgumentException ex) {
             throw BusinessException.badRequest(ex.getMessage());
         }

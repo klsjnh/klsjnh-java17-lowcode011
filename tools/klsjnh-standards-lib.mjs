@@ -358,10 +358,15 @@ function importGroup(line) {
     return 3;
   }
   if (p === 'com.klsjnh.domain' || p.startsWith('com.klsjnh.domain.')
-    || p === 'com.klsjnh.application' || p.startsWith('com.klsjnh.application.')) {
+    || p === 'com.klsjnh.application' || p.startsWith('com.klsjnh.application.')
+    || p === 'com.klsjnh.lowcode011.domain' || p.startsWith('com.klsjnh.lowcode011.domain.')
+    || p === 'com.klsjnh.lowcode011.application' || p.startsWith('com.klsjnh.lowcode011.application.')) {
     return 4;
   }
   if (p.startsWith('com.klsjnh.web.')) {
+    return /\.converter\./.test(p) ? 5 : 6;
+  }
+  if (p.startsWith('com.klsjnh.lowcode011.web.')) {
     return /\.converter\./.test(p) ? 5 : 6;
   }
   if (p === 'com.klsjnh' || p.startsWith('com.klsjnh.')) {

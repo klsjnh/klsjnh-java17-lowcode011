@@ -24,7 +24,7 @@ import com.klsjnh.lowcode011.domain.JulyMetadataRepository;
 import com.klsjnh.lowcode011.domain.JulyMetadataVersion;
 import com.klsjnh.lowcode011.domain.JulyMetadataVersionRepository;
 import com.klsjnh.lowcode011.domain.MetadataDataAccessPort;
-import com.klsjnh.lowcode011.domain.MetadataDdlExecutorPort;
+import com.klsjnh.lowcode011.domain.DialectResolverPort;
 import com.klsjnh.lowcode011.domain.ObjectTablePolicy;
 import com.klsjnh.lowcode011.domain.records.BaseColumn011;
 
@@ -54,7 +54,7 @@ public class ObjectTableGateway {
     /**
      * Catalog reads (columns).
      */
-    private final MetadataDdlExecutorPort ddlExecutor;
+    private final DialectResolverPort dialectResolverPort;
 
     /**
      * Metadata-driven value validator.
@@ -86,11 +86,11 @@ public class ObjectTableGateway {
      * @param metadataRepository  metadata repository
      * @param currentOperatorPort current operator port
      */
-    public ObjectTableGateway(MetadataDataAccessPort dataAccess, MetadataDdlExecutorPort ddlExecutor,
+    public ObjectTableGateway(MetadataDataAccessPort dataAccess, DialectResolverPort dialectResolverPort,
             MetadataValueValidator validator, JulyMetadataVersionRepository versionRepository,
             JulyMetadataRepository metadataRepository, CurrentOperatorPort currentOperatorPort) {
         this.dataAccess = dataAccess;
-        this.ddlExecutor = ddlExecutor;
+        this.dialectResolverPort = dialectResolverPort;
         this.validator = validator;
         this.versionRepository = versionRepository;
         this.metadataRepository = metadataRepository;
@@ -125,7 +125,7 @@ public class ObjectTableGateway {
      */
     public Map<String, Object> query(ObjectQueryCommand command) {
         String table = physicalTable(command.objectName());
-        Set<String> columns = ddlExecutor.columnsOf(table);
+        Set<String> columns = dialectResolverPort.resolve().ddlExecutor().columnsOf(table);
         Map<String, Object> where = ObjectTablePolicy.filter(command.filters(), columns);
         ObjectTablePolicy.withDrFilter(where, columns);
         int[] page = ObjectTablePolicy.page(command.pageIndex(), command.pageSize());
@@ -151,7 +151,7 @@ public class ObjectTableGateway {
      */
     public int insert(String objectName, Map<String, Object> body) {
         String table = physicalTable(objectName);
-        Set<String> columns = ddlExecutor.columnsOf(table);
+        Set<String> columns = dialectResolverPort.resolve().ddlExecutor().columnsOf(table);
         Map<String, Object> values = ObjectTablePolicy.filter(body, columns);
 
         if (values.isEmpty()) {
@@ -174,7 +174,7 @@ public class ObjectTableGateway {
      */
     public int update(String objectName, Map<String, Object> body) {
         String table = physicalTable(objectName);
-        Set<String> columns = ddlExecutor.columnsOf(table);
+        Set<String> columns = dialectResolverPort.resolve().ddlExecutor().columnsOf(table);
         String keyColumn = ObjectTablePolicy.keyColumn(body);
         Object keyValue = body.get(keyColumn);
 
@@ -200,7 +200,7 @@ public class ObjectTableGateway {
      */
     public int delete(String objectName, Map<String, Object> body) {
         String table = physicalTable(objectName);
-        Set<String> columns = ddlExecutor.columnsOf(table);
+        Set<String> columns = dialectResolverPort.resolve().ddlExecutor().columnsOf(table);
         String keyColumn = ObjectTablePolicy.keyColumn(body);
         Object keyValue = body.get(keyColumn);
 

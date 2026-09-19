@@ -40,7 +40,7 @@ docs/
 | `019` | [019.backend-api-review.md](docs/019.backend-api-review.md) | 后端接口质量评审 | 契约层的已知缺口（哪些不能信 Swagger） |
 | `017` | [017.tech-debt-redlines.md](docs/017.tech-debt-redlines.md) | 技术债红线 | 参考实现踩过的坑，**不要重蹈** |
 | `011→013→015` | [docs/requirement011/](docs/requirement011/) → [docs/requirement013/](docs/requirement013/) → `docs/requirement015/`（未启用） | 需求三档 | 这个需求要做什么（原始 → 概要 → 详细） |
-| `infrastructure011` | [docs/infrastructure011/](docs/infrastructure011/) | 架构专题 | 系统架构与技术体系（技术设计输入） |
+| `infrastructure011` | docs/infrastructure011/（平台架构见框架仓库） | 架构专题 | 系统架构与技术体系（技术设计输入） |
 | `015` | [015.project-info.md](docs/015.project-info.md) | 项目事实卡 | 本项目事实（栈 / 构建 / 运行 / 能力）—— **具体命令在这里** |
 
 > **路径是协议，内容是实例**：上表每一项对应的**文件位置**在任意项目里一字不改（见上方目录树）；变的只是各文件里的文章。  
