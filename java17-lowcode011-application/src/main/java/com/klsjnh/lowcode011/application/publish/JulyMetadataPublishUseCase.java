@@ -18,15 +18,15 @@ import com.klsjnh.common.exception.BusinessException;
 import com.klsjnh.common.identity.Operator011;
 import com.klsjnh.common.util.DateUtil011;
 
-import com.klsjnh.lowcode011.domain.CurrentOperatorPort;
-import com.klsjnh.lowcode011.domain.records.ResultKey011;
-import com.klsjnh.lowcode011.domain.JulyMetadata;
-import com.klsjnh.lowcode011.domain.JulyMetadataField;
-import com.klsjnh.lowcode011.domain.JulyMetadataRepository;
-import com.klsjnh.lowcode011.domain.JulyMetadataVersion;
-import com.klsjnh.lowcode011.domain.JulyMetadataVersionRepository;
-import com.klsjnh.lowcode011.domain.DialectResolverPort;
-import com.klsjnh.lowcode011.domain.records.MetaDtoKey011;
+import com.klsjnh.lowcode011.domain.metadata.CurrentOperatorPort;
+import com.klsjnh.lowcode011.domain.shared.ResultKey011;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadata;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataField;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataRepository;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataVersion;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataVersionRepository;
+import com.klsjnh.lowcode011.domain.dialect.DialectResolverPort;
+import com.klsjnh.lowcode011.domain.metadata.MetaDtoKey011;
 import com.klsjnh.domain.shared.EntityId;
 import com.klsjnh.lowcode011.application.JulyMetadataUseCase;
 

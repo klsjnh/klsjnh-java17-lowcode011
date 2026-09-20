@@ -14,7 +14,7 @@ package com.klsjnh.lowcode011.infrastructure.template;
  *
  */
 
-import com.klsjnh.lowcode011.domain.TemplateCodec;
+import com.klsjnh.lowcode011.domain.template.TemplateCodec;
 import com.klsjnh.lowcode011.domain.enums.TemplateFormat011;
 
 import org.springframework.stereotype.Component;

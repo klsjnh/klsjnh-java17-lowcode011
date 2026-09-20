@@ -14,7 +14,7 @@ package com.klsjnh.lowcode011.infrastructure.ddl;
  *
  */
 
-import com.klsjnh.lowcode011.domain.MetadataDdlExecutorPort;
+import com.klsjnh.lowcode011.domain.metadata.MetadataDdlExecutorPort;
 
 import com.klsjnh.lowcode011.infrastructure.config.LowcodeConfig011;
 

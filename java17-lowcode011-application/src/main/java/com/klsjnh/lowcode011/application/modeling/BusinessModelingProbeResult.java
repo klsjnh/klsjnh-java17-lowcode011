@@ -14,7 +14,7 @@ package com.klsjnh.lowcode011.application.modeling;
  *
  */
 
-import com.klsjnh.lowcode011.domain.JulyMetadataField;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataField;
 
 import java.util.List;
 

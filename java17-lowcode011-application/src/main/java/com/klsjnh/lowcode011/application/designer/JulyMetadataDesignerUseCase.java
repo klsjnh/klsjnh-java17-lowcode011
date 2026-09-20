@@ -18,15 +18,15 @@ import com.klsjnh.common.exception.BusinessException;
 import com.klsjnh.common.page.PageQuery011;
 import com.klsjnh.common.page.PageResult011;
 
-import com.klsjnh.lowcode011.domain.JulyMetadata;
-import com.klsjnh.lowcode011.domain.JulyMetadataField;
-import com.klsjnh.lowcode011.domain.JulyMetadataRepository;
-import com.klsjnh.lowcode011.domain.DialectResolverPort;
-import com.klsjnh.lowcode011.domain.records.MetaDtoKey011;
-import com.klsjnh.lowcode011.domain.records.MetadataContent;
-import com.klsjnh.lowcode011.domain.records.MetadataContentCodec;
-import com.klsjnh.lowcode011.domain.records.ResultKey011;
-import com.klsjnh.lowcode011.domain.records.MetadataContentMapper;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadata;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataField;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataRepository;
+import com.klsjnh.lowcode011.domain.dialect.DialectResolverPort;
+import com.klsjnh.lowcode011.domain.metadata.MetaDtoKey011;
+import com.klsjnh.lowcode011.domain.metadata.MetadataContent;
+import com.klsjnh.lowcode011.domain.metadata.MetadataContentCodec;
+import com.klsjnh.lowcode011.domain.shared.ResultKey011;
+import com.klsjnh.lowcode011.domain.metadata.MetadataContentMapper;
 import com.klsjnh.lowcode011.application.JulyMetadataUseCase;
 
 import org.springframework.stereotype.Service;

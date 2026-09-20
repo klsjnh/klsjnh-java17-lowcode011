@@ -18,9 +18,9 @@ package com.klsjnh.lowcode011.application.runtime;
 import com.klsjnh.common.enums.AuditType011;
 import com.klsjnh.common.exception.BusinessException;
 
-import com.klsjnh.domain.iam.UserAuditPort;
-import com.klsjnh.lowcode011.domain.JulyMetadataOpenApi;
-import com.klsjnh.lowcode011.domain.JulyMetadataOpenApiRepository;
+import com.klsjnh.domain.iam.user.UserAuditPort;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataOpenApi;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataOpenApiRepository;
 import com.klsjnh.lowcode011.application.ObjectTableGateway;
 import com.klsjnh.lowcode011.application.ObjectQueryCommand;
 import com.klsjnh.lowcode011.application.designer.JulyMetadataDesignerUseCase;

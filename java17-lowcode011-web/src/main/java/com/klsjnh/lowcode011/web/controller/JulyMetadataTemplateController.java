@@ -20,7 +20,7 @@ import com.klsjnh.common.response.Response011;
 
 import com.klsjnh.lowcode011.application.template.JulyMetadataTemplateUseCase;
 import com.klsjnh.lowcode011.domain.enums.TemplateFormat011;
-import com.klsjnh.lowcode011.domain.records.IntakeKey011;
+import com.klsjnh.lowcode011.domain.intake.IntakeKey011;
 
 import com.klsjnh.web.global.audit.AuditLog;
 

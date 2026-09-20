@@ -16,11 +16,11 @@ package com.klsjnh.lowcode011.infrastructure.modeling.support;
 
 import com.klsjnh.lowcode011.domain.modeling.BusinessModelingProbePort;
 import com.klsjnh.lowcode011.domain.modeling.ProbeOutcome;
-import com.klsjnh.domain.datasource.ConnectionInfo;
+import com.klsjnh.domain.datasource.kernel.ConnectionInfo;
 
-import com.klsjnh.infrastructure.datasource.DynamicDataSource011;
-import com.klsjnh.infrastructure.datasource.DynamicDataSourceRegistryImpl;
-import com.klsjnh.infrastructure.datasource.SqlDialect011;
+import com.klsjnh.infrastructure.datasource.kernel.DynamicDataSource011;
+import com.klsjnh.infrastructure.datasource.kernel.DynamicDataSourceRegistryImpl;
+import com.klsjnh.infrastructure.datasource.kernel.SqlDialect011;
 
 import org.springframework.stereotype.Component;
 

@@ -16,7 +16,7 @@ package com.klsjnh.lowcode011.infrastructure.modeling.support;
 
 import com.klsjnh.lowcode011.domain.modeling.FieldInferencePort;
 import com.klsjnh.lowcode011.domain.modeling.ProbeOutcome;
-import com.klsjnh.lowcode011.domain.JulyMetadataField;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataField;
 
 import org.springframework.stereotype.Component;
 

@@ -23,8 +23,8 @@ import com.klsjnh.common.vo.IdVo011;
 import com.klsjnh.common.vo.IdsVo011;
 
 import com.klsjnh.lowcode011.application.JulyMetadataUseCase;
-import com.klsjnh.lowcode011.domain.JulyMetadata;
-import com.klsjnh.lowcode011.domain.JulyMetadataQuerySpec;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadata;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataQuerySpec;
 
 import com.klsjnh.lowcode011.web.converter.JulyMetadataConverter;
 

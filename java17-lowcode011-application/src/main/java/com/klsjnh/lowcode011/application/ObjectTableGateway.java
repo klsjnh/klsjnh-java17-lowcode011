@@ -17,16 +17,16 @@ package com.klsjnh.lowcode011.application;
 import com.klsjnh.common.exception.BusinessException;
 import com.klsjnh.common.identity.Operator011;
 
-import com.klsjnh.lowcode011.domain.CurrentOperatorPort;
-import com.klsjnh.lowcode011.domain.records.ResultKey011;
-import com.klsjnh.lowcode011.domain.JulyMetadata;
-import com.klsjnh.lowcode011.domain.JulyMetadataRepository;
-import com.klsjnh.lowcode011.domain.JulyMetadataVersion;
-import com.klsjnh.lowcode011.domain.JulyMetadataVersionRepository;
-import com.klsjnh.lowcode011.domain.MetadataDataAccessPort;
-import com.klsjnh.lowcode011.domain.DialectResolverPort;
-import com.klsjnh.lowcode011.domain.ObjectTablePolicy;
-import com.klsjnh.lowcode011.domain.records.BaseColumn011;
+import com.klsjnh.lowcode011.domain.metadata.CurrentOperatorPort;
+import com.klsjnh.lowcode011.domain.shared.ResultKey011;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadata;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataRepository;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataVersion;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataVersionRepository;
+import com.klsjnh.lowcode011.domain.metadata.MetadataDataAccessPort;
+import com.klsjnh.lowcode011.domain.dialect.DialectResolverPort;
+import com.klsjnh.lowcode011.domain.metadata.ObjectTablePolicy;
+import com.klsjnh.lowcode011.domain.metadata.BaseColumn011;
 
 import org.springframework.stereotype.Service;
 
@@ -240,7 +240,7 @@ public class ObjectTableGateway {
      * @param objectName object name
      * @return fields
      */
-    private List<com.klsjnh.lowcode011.domain.JulyMetadataField> fields(String objectName) {
+    private List<com.klsjnh.lowcode011.domain.metadata.JulyMetadataField> fields(String objectName) {
         JulyMetadata metadata = metadataRepository.findByObjectName(objectName);
 
         if (metadata == null) {
@@ -257,7 +257,7 @@ public class ObjectTableGateway {
      * @param fields  object fields
      * @param partial true for update
      */
-    private void validate(Map<String, Object> values, List<com.klsjnh.lowcode011.domain.JulyMetadataField> fields,
+    private void validate(Map<String, Object> values, List<com.klsjnh.lowcode011.domain.metadata.JulyMetadataField> fields,
             boolean partial) {
         List<String> errors = validator.validate(values, fields, partial);
 

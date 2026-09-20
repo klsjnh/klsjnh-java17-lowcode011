@@ -14,8 +14,8 @@ package com.klsjnh.lowcode011.infrastructure.repository;
  *
  */
 
-import com.klsjnh.lowcode011.domain.JulyMetadataOpenApi;
-import com.klsjnh.lowcode011.domain.JulyMetadataOpenApiRepository;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataOpenApi;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataOpenApiRepository;
 
 import com.klsjnh.lowcode011.infrastructure.entity.JulyMetadataOpenApiPo;
 import com.klsjnh.lowcode011.infrastructure.mapper.JulyMetadataOpenApiMapper;

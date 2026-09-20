@@ -21,12 +21,12 @@ import com.klsjnh.common.page.PageResult011;
 import com.klsjnh.common.vo.BatchDeleteErrorVo011;
 import com.klsjnh.common.vo.BatchDeleteResultVo011;
 
-import com.klsjnh.lowcode011.domain.JulyMetadata;
-import com.klsjnh.lowcode011.domain.JulyMetadataDisplay;
-import com.klsjnh.lowcode011.domain.JulyMetadataField;
-import com.klsjnh.lowcode011.domain.JulyMetadataQuerySpec;
-import com.klsjnh.lowcode011.domain.JulyMetadataRepository;
-import com.klsjnh.lowcode011.domain.JulyMetadataService;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadata;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataDisplay;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataField;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataQuerySpec;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataRepository;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataService;
 import com.klsjnh.domain.shared.AuditInfo;
 import com.klsjnh.domain.shared.EntityId;
 

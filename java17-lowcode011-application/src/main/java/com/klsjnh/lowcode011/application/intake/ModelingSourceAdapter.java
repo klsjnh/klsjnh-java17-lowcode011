@@ -18,10 +18,10 @@ import com.klsjnh.common.exception.BusinessException;
 
 import com.klsjnh.lowcode011.application.modeling.JulyBusinessModelingUseCase;
 import com.klsjnh.lowcode011.domain.modeling.JulyBusinessModeling;
-import com.klsjnh.lowcode011.domain.ModelSourceKind011;
-import com.klsjnh.lowcode011.domain.ModelSourcePort;
-import com.klsjnh.lowcode011.domain.SourceRequest;
-import com.klsjnh.lowcode011.domain.records.MetadataContent;
+import com.klsjnh.lowcode011.domain.intake.ModelSourceKind011;
+import com.klsjnh.lowcode011.domain.intake.ModelSourcePort;
+import com.klsjnh.lowcode011.domain.intake.SourceRequest;
+import com.klsjnh.lowcode011.domain.metadata.MetadataContent;
 
 import org.springframework.stereotype.Component;
 

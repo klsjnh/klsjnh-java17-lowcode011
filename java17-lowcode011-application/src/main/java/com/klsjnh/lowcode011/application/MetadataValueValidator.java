@@ -14,9 +14,9 @@ package com.klsjnh.lowcode011.application;
  *
  */
 
-import com.klsjnh.lowcode011.domain.JulyMetadataField;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataField;
 import com.klsjnh.lowcode011.domain.enums.FieldType011;
-import com.klsjnh.lowcode011.domain.records.BaseColumn011;
+import com.klsjnh.lowcode011.domain.metadata.BaseColumn011;
 
 import org.springframework.stereotype.Component;
 

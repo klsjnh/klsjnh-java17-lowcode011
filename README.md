@@ -14,7 +14,7 @@ Java 17 **纯血 DDD** 低代码**产品**工程 —— 元数据引擎 + 设计
                 │ 依赖（Maven 构件，非源码拷贝）
 ┌───────────────┴────────────────── 框架 java17-framework011 ───────────────────────┐
 │  common011 · domain011 · application011 · infrastructure011 · web011             │
-│  （信封/异常/基座仓储/鉴权/IAM/system011/数据源内核+管理+方言/存储/AI/导出）          │
+│  （信封/异常/基座仓储/鉴权/IAM/system011/数据源内核+管理+方言/存储中心/AI 中心/导出）   │
 └──────────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -33,7 +33,7 @@ Java 17 **纯血 DDD** 低代码**产品**工程 —— 元数据引擎 + 设计
 
 ## 技术栈
 
-底座技术栈见框架 README；本项目额外：模板多格式编解码（JSON / CSV / Markdown，XLSX 预留）、AI 一句话开发（依赖框架 ai011 调用）。
+底座技术栈见框架 README；本项目额外：模板多格式编解码（JSON / CSV / Markdown，XLSX 预留）、AI 一句话开发（依赖框架 AI 中心 `aicenter` 的推理能力）。
 
 ## 快速开始
 
@@ -69,6 +69,16 @@ mvn -o clean package -DskipTests      # 离线构建，产出 app011 可执行 j
 
 与框架一致：文件头 `/* TypeName */` 块；Javadoc 英文；`@Schema` 中文仅 web VO；DDL 注释中文；domain 零框架依赖；`@Transactional` 只在 application；PO 只在 infrastructure；逻辑删除 `dr`，唯一键只约束存活行（生成列 `alive_*`）；主键 `EntityId.generate()`。
 
+## AI 协作（助手自述）
+
+本仓库由 AI 编程助手协作开发，助手遵守本仓库门牌 [Agent.md](Agent.md) 与协议全集 [docs/011.agreements.md](docs/011.agreements.md)。
+
+- **身份**：opencode —— 命令行 AI 编程助手；事实以仓库文档与实际运行结果为准，不臆测。
+- **六条红线**：禁止主动提交 · 只读可自主 · 高危需授权 · 本机执行禁沙箱 · **底层只读** · 代码先行审查。
+- **底层只读**：相邻的底座 / 框架工程（`klsjnh-java17-framework011` 等）**只读禁改**；底座缺陷只输出说明交底座侧处理（条款见 `docs/011.agreements.md` §011.铁律 · 019）。
+- **验证纪律**：改动后必过 `./script011.sh gate`（规范 + 离线编译）并启动自测；长命令脱钩执行（后台运行 + 输出写日志）。
+- **文档同步**：代码与文档（`docs/`）同改，一个事实只有一个家。
+
 ## 版本
 
-`com.klsjnh:java17-lowcode011:1.0.0`（开发中），依赖框架 `1.0.0`。
+`com.klsjnh:java17-lowcode011:1.0.0`（开发中），依赖框架 `1.0.0`（当前底座已重构为 AI 中心 `aicenter`）。

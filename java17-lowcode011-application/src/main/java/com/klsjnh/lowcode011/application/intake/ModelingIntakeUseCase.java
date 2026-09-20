@@ -16,13 +16,13 @@ package com.klsjnh.lowcode011.application.intake;
 
 import com.klsjnh.common.exception.BusinessException;
 
-import com.klsjnh.lowcode011.domain.ModelSourceKind011;
-import com.klsjnh.lowcode011.domain.ModelSourcePort;
-import com.klsjnh.lowcode011.domain.SourceRequest;
-import com.klsjnh.lowcode011.domain.records.MetaDtoKey011;
-import com.klsjnh.lowcode011.domain.records.MetadataContent;
-import com.klsjnh.lowcode011.domain.records.MetadataContentCodec;
-import com.klsjnh.lowcode011.domain.records.IntakeKey011;
+import com.klsjnh.lowcode011.domain.intake.ModelSourceKind011;
+import com.klsjnh.lowcode011.domain.intake.ModelSourcePort;
+import com.klsjnh.lowcode011.domain.intake.SourceRequest;
+import com.klsjnh.lowcode011.domain.metadata.MetaDtoKey011;
+import com.klsjnh.lowcode011.domain.metadata.MetadataContent;
+import com.klsjnh.lowcode011.domain.metadata.MetadataContentCodec;
+import com.klsjnh.lowcode011.domain.intake.IntakeKey011;
 import com.klsjnh.lowcode011.application.template.JulyMetadataTemplateUseCase;
 
 import org.springframework.stereotype.Service;

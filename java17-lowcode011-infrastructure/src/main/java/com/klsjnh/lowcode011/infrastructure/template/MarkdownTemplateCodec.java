@@ -17,9 +17,9 @@ package com.klsjnh.lowcode011.infrastructure.template;
 import com.klsjnh.common.util.MarkdownUtil011;
 import com.klsjnh.common.util.StringUtil011;
 
-import com.klsjnh.lowcode011.domain.TemplateCodec;
+import com.klsjnh.lowcode011.domain.template.TemplateCodec;
 import com.klsjnh.lowcode011.domain.enums.TemplateFormat011;
-import com.klsjnh.lowcode011.domain.records.MetaDtoKey011;
+import com.klsjnh.lowcode011.domain.metadata.MetaDtoKey011;
 
 import org.springframework.stereotype.Component;
 

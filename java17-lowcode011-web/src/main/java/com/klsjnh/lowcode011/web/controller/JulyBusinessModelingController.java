@@ -21,7 +21,7 @@ import com.klsjnh.common.vo.BatchDeleteResultVo011;
 import com.klsjnh.common.vo.IdVo011;
 import com.klsjnh.common.vo.IdsVo011;
 
-import com.klsjnh.application.datasource.SqlExecuteCommand;
+import com.klsjnh.application.datasource.kernel.SqlExecuteCommand;
 import com.klsjnh.lowcode011.application.modeling.JulyBusinessModelingUseCase;
 import com.klsjnh.lowcode011.domain.modeling.JulyBusinessModeling;
 import com.klsjnh.lowcode011.domain.modeling.JulyBusinessModelingQuerySpec;

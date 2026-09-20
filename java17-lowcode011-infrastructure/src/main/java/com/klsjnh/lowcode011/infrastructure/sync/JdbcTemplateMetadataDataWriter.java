@@ -16,9 +16,9 @@ package com.klsjnh.lowcode011.infrastructure.sync;
 
 import com.klsjnh.common.util.DateUtil011;
 
-import com.klsjnh.lowcode011.domain.MetadataDataWriterPort;
-import com.klsjnh.lowcode011.domain.MetadataDdlExecutorPort;
-import com.klsjnh.lowcode011.domain.records.BaseColumn011;
+import com.klsjnh.lowcode011.domain.metadata.MetadataDataWriterPort;
+import com.klsjnh.lowcode011.domain.metadata.MetadataDdlExecutorPort;
+import com.klsjnh.lowcode011.domain.metadata.BaseColumn011;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;

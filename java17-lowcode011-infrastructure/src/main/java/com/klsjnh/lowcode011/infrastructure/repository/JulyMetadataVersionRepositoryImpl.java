@@ -14,8 +14,8 @@ package com.klsjnh.lowcode011.infrastructure.repository;
  *
  */
 
-import com.klsjnh.lowcode011.domain.JulyMetadataVersion;
-import com.klsjnh.lowcode011.domain.JulyMetadataVersionRepository;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataVersion;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataVersionRepository;
 
 import com.klsjnh.lowcode011.infrastructure.entity.JulyMetadataVersionPo;
 import com.klsjnh.lowcode011.infrastructure.mapper.JulyMetadataVersionMapper;

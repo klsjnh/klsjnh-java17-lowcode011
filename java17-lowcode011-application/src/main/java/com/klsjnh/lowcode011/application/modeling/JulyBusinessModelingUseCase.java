@@ -21,20 +21,20 @@ import com.klsjnh.common.page.PageResult011;
 import com.klsjnh.common.vo.BatchDeleteErrorVo011;
 import com.klsjnh.common.vo.BatchDeleteResultVo011;
 
-import com.klsjnh.application.datasource.SqlExecuteCommand;
+import com.klsjnh.application.datasource.kernel.SqlExecuteCommand;
 import com.klsjnh.lowcode011.domain.modeling.BusinessModelingProbePort;
 import com.klsjnh.lowcode011.domain.modeling.FieldInferencePort;
 import com.klsjnh.lowcode011.domain.modeling.JulyBusinessModeling;
 import com.klsjnh.lowcode011.domain.modeling.JulyBusinessModelingQuerySpec;
 import com.klsjnh.lowcode011.domain.modeling.JulyBusinessModelingRepository;
-import com.klsjnh.domain.datasource.JulyDatasource;
-import com.klsjnh.domain.datasource.JulyDatasourceRepository;
+import com.klsjnh.domain.datasource.management.JulyDatasource;
+import com.klsjnh.domain.datasource.management.JulyDatasourceRepository;
 import com.klsjnh.lowcode011.domain.modeling.ModelingSqlGuard;
 import com.klsjnh.lowcode011.domain.modeling.ProbeOutcome;
-import com.klsjnh.domain.datasource.SqlRoutingPort;
+import com.klsjnh.domain.datasource.kernel.SqlRoutingPort;
 import com.klsjnh.lowcode011.domain.enums.ObjectType011;
-import com.klsjnh.lowcode011.domain.JulyMetadataField;
-import com.klsjnh.lowcode011.domain.records.MetadataContent;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataField;
+import com.klsjnh.lowcode011.domain.metadata.MetadataContent;
 import com.klsjnh.domain.shared.AuditInfo;
 import com.klsjnh.domain.shared.EntityId;
 

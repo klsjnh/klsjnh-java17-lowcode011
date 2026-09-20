@@ -140,7 +140,7 @@ is_running() {
 
 wait_up() {
   for i in $(seq 1 30); do
-    if grep -q "Started Framework011Application" "$APP_LOG" 2>/dev/null; then
+    if grep -q "Started Lowcode011Application" "$APP_LOG" 2>/dev/null; then
       return 0
     fi
     sleep 1

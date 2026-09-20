@@ -16,13 +16,13 @@ package com.klsjnh.lowcode011.infrastructure.repository;
 
 import com.klsjnh.common.util.DateUtil011;
 
-import com.klsjnh.lowcode011.domain.JulyMetadata;
-import com.klsjnh.lowcode011.domain.JulyMetadataDisplay;
-import com.klsjnh.lowcode011.domain.JulyMetadataField;
-import com.klsjnh.lowcode011.domain.JulyMetadataQuerySpec;
-import com.klsjnh.lowcode011.domain.JulyMetadataRepository;
-import com.klsjnh.lowcode011.domain.JulyMetadataService;
-import com.klsjnh.lowcode011.domain.JulyMetadataSource;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadata;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataDisplay;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataField;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataQuerySpec;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataRepository;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataService;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataSource;
 import com.klsjnh.domain.shared.AuditInfo;
 import com.klsjnh.domain.shared.EntityId;
 

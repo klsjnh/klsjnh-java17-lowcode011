@@ -16,16 +16,16 @@ package com.klsjnh.lowcode011.application.intake;
 
 import com.klsjnh.common.exception.BusinessException;
 
-import com.klsjnh.application.ai011.AiInvokeOutcome;
-import com.klsjnh.application.ai011.AiInvokeUseCase;
-import com.klsjnh.domain.ai011.AiChatMessage;
-import com.klsjnh.lowcode011.domain.ModelSourceKind011;
-import com.klsjnh.lowcode011.domain.ModelSourcePort;
-import com.klsjnh.lowcode011.domain.SourceRequest;
-import com.klsjnh.lowcode011.domain.records.BaseColumn011;
-import com.klsjnh.lowcode011.domain.records.MetaDtoKey011;
-import com.klsjnh.lowcode011.domain.records.MetadataContent;
-import com.klsjnh.lowcode011.domain.records.MetadataContentCodec;
+import com.klsjnh.application.aicenter.inference.AiInferenceOutcome;
+import com.klsjnh.application.aicenter.inference.AiInferenceUseCase;
+import com.klsjnh.domain.aicenter.inference.AiChatMessage;
+import com.klsjnh.lowcode011.domain.intake.ModelSourceKind011;
+import com.klsjnh.lowcode011.domain.intake.ModelSourcePort;
+import com.klsjnh.lowcode011.domain.intake.SourceRequest;
+import com.klsjnh.lowcode011.domain.metadata.BaseColumn011;
+import com.klsjnh.lowcode011.domain.metadata.MetaDtoKey011;
+import com.klsjnh.lowcode011.domain.metadata.MetadataContent;
+import com.klsjnh.lowcode011.domain.metadata.MetadataContentCodec;
 import com.klsjnh.lowcode011.application.template.JulyMetadataTemplateUseCase;
 
 import org.springframework.stereotype.Component;
@@ -55,7 +55,7 @@ public class AiSourceAdapter implements ModelSourcePort {
     /**
      * AI invoke use case (model call).
      */
-    private final AiInvokeUseCase aiInvokeUseCase;
+    private final AiInferenceUseCase aiInferenceUseCase;
 
     /**
      * Template use case (skeleton + guide).
@@ -70,11 +70,11 @@ public class AiSourceAdapter implements ModelSourcePort {
     /**
      * Create the adapter.
      *
-     * @param aiInvokeUseCase ai invoke use case
-     * @param templateUseCase template use case
+     * @param aiInferenceUseCase ai inference use case
+     * @param templateUseCase    template use case
      */
-    public AiSourceAdapter(AiInvokeUseCase aiInvokeUseCase, JulyMetadataTemplateUseCase templateUseCase) {
-        this.aiInvokeUseCase = aiInvokeUseCase;
+    public AiSourceAdapter(AiInferenceUseCase aiInferenceUseCase, JulyMetadataTemplateUseCase templateUseCase) {
+        this.aiInferenceUseCase = aiInferenceUseCase;
         this.templateUseCase = templateUseCase;
     }
 
@@ -112,8 +112,8 @@ public class AiSourceAdapter implements ModelSourcePort {
         String lastError = null;
 
         for (int attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
-            AiInvokeOutcome outcome = aiInvokeUseCase.chat(request.provider(), request.api(), request.model(), messages,
-                    null, null);
+            AiInferenceOutcome outcome = aiInferenceUseCase.chat(request.provider(), request.api(), request.model(),
+                    messages, null, null);
 
             try {
                 return parse(outcome.content(), request);

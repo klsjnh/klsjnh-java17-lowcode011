@@ -14,8 +14,8 @@ package com.klsjnh.lowcode011.infrastructure.ddl;
  *
  */
 
-import com.klsjnh.lowcode011.domain.JulyMetadataField;
-import com.klsjnh.lowcode011.domain.MetadataDdlGeneratorPort;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataField;
+import com.klsjnh.lowcode011.domain.metadata.MetadataDdlGeneratorPort;
 import com.klsjnh.lowcode011.domain.enums.FieldType011;
 
 import org.springframework.stereotype.Component;

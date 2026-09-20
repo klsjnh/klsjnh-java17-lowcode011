@@ -17,14 +17,14 @@ package com.klsjnh.lowcode011.application.publish;
 import com.klsjnh.common.exception.BusinessException;
 import com.klsjnh.common.page.PageResult011;
 
-import com.klsjnh.application.datasource.SqlExecuteCommand;
+import com.klsjnh.application.datasource.kernel.SqlExecuteCommand;
 import com.klsjnh.lowcode011.application.modeling.JulyBusinessModelingUseCase;
-import com.klsjnh.lowcode011.domain.JulyMetadata;
-import com.klsjnh.lowcode011.domain.records.ResultKey011;
-import com.klsjnh.lowcode011.domain.JulyMetadataRepository;
-import com.klsjnh.lowcode011.domain.JulyMetadataVersion;
-import com.klsjnh.lowcode011.domain.JulyMetadataVersionRepository;
-import com.klsjnh.lowcode011.domain.DialectResolverPort;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadata;
+import com.klsjnh.lowcode011.domain.shared.ResultKey011;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataRepository;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataVersion;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataVersionRepository;
+import com.klsjnh.lowcode011.domain.dialect.DialectResolverPort;
 import com.klsjnh.lowcode011.application.JulyMetadataUseCase;
 import com.klsjnh.lowcode011.application.MetadataValueValidator;
 

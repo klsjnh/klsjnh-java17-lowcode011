@@ -14,14 +14,14 @@ package com.klsjnh.lowcode011.infrastructure.dialect;
  *
  */
 
-import com.klsjnh.common.enums.DatabaseType011;
+import com.klsjnh.common.constant.DatabaseTypes011;
 
-import com.klsjnh.lowcode011.domain.Dialect011;
-import com.klsjnh.lowcode011.domain.DialectPort;
-import com.klsjnh.lowcode011.domain.DialectResolverPort;
-import com.klsjnh.lowcode011.domain.MetadataDataWriterPort;
-import com.klsjnh.lowcode011.domain.MetadataDdlExecutorPort;
-import com.klsjnh.lowcode011.domain.MetadataDdlGeneratorPort;
+import com.klsjnh.lowcode011.domain.dialect.Dialect011;
+import com.klsjnh.lowcode011.domain.dialect.DialectPort;
+import com.klsjnh.lowcode011.domain.dialect.DialectResolverPort;
+import com.klsjnh.lowcode011.domain.metadata.MetadataDataWriterPort;
+import com.klsjnh.lowcode011.domain.metadata.MetadataDdlExecutorPort;
+import com.klsjnh.lowcode011.domain.metadata.MetadataDdlGeneratorPort;
 
 import com.klsjnh.lowcode011.infrastructure.config.LowcodeConfig011;
 
@@ -29,8 +29,8 @@ import org.springframework.stereotype.Component;
 
 /**
  * Target db dialect registry: MySQL is implemented; Oracle / SQLServer fail
- * loudly until their dialects land. Resolution is by {@code DatabaseType011},
- * so callers never hard-code MySQL.
+ * loudly until their dialects land. Resolution is by the open string db type
+ * code (see {@code DatabaseTypes011}), so callers never hard-code MySQL.
  */
 
 @Component
@@ -63,16 +63,18 @@ public class DialectRegistry011 implements DialectResolverPort {
     /** {@inheritDoc} */
     @Override
     public DialectPort resolve() {
-        return resolve(DatabaseType011.fromString(lowcodeConfig011.getTargetDbType()));
+        return resolve(lowcodeConfig011.getTargetDbType());
     }
 
     /** {@inheritDoc} */
     @Override
-    public DialectPort resolve(DatabaseType011 type) {
-        if (type == null || type == DatabaseType011.MYSQL) {
+    public DialectPort resolve(String dbType) {
+        String type = DatabaseTypes011.normalize(dbType);
+
+        if (type == null || DatabaseTypes011.MYSQL.equals(type)) {
             return mysql;
         }
 
-        throw new IllegalArgumentException("db dialect not supported yet: " + type.getCode());
+        throw new IllegalArgumentException("db dialect not supported yet: " + dbType);
     }
 }

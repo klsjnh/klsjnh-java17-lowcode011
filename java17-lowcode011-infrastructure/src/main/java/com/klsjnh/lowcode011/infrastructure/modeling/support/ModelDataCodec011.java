@@ -17,8 +17,8 @@ package com.klsjnh.lowcode011.infrastructure.modeling.support;
 
 import com.klsjnh.common.util.StringUtil011;
 
-import com.klsjnh.lowcode011.domain.JulyMetadataField;
-import com.klsjnh.lowcode011.domain.records.MetadataContent;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataField;
+import com.klsjnh.lowcode011.domain.metadata.MetadataContent;
 
 import org.springframework.stereotype.Component;
 

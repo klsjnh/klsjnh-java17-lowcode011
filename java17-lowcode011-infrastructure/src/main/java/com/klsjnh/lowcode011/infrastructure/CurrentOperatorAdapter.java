@@ -17,7 +17,7 @@ package com.klsjnh.lowcode011.infrastructure;
 import com.klsjnh.common.identity.Operator011;
 import com.klsjnh.common.identity.OperatorContext011;
 
-import com.klsjnh.lowcode011.domain.CurrentOperatorPort;
+import com.klsjnh.lowcode011.domain.metadata.CurrentOperatorPort;
 
 import org.springframework.stereotype.Component;
 

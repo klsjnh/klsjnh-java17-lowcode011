@@ -18,7 +18,7 @@ import com.klsjnh.common.exception.BusinessException;
 
 import com.klsjnh.lowcode011.application.modeling.BusinessModelingProbeResult;
 import com.klsjnh.lowcode011.domain.modeling.JulyBusinessModeling;
-import com.klsjnh.lowcode011.domain.JulyMetadataField;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataField;
 
 import com.klsjnh.lowcode011.web.vo.julybusinessmodeling.JulyBusinessModelingFieldVo011;
 import com.klsjnh.lowcode011.web.vo.julybusinessmodeling.JulyBusinessModelingMetaVo011;

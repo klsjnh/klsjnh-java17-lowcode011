@@ -18,10 +18,10 @@ package com.klsjnh.lowcode011.domain.modeling;
 import com.klsjnh.common.enums.Status011;
 import com.klsjnh.common.util.StringUtil011;
 
-import com.klsjnh.lowcode011.domain.JulyMetadataField;
+import com.klsjnh.lowcode011.domain.metadata.JulyMetadataField;
 import com.klsjnh.lowcode011.domain.enums.FieldType011;
 import com.klsjnh.lowcode011.domain.enums.ObjectType011;
-import com.klsjnh.lowcode011.domain.records.MetadataContent;
+import com.klsjnh.lowcode011.domain.metadata.MetadataContent;
 import com.klsjnh.domain.shared.AuditInfo;
 import com.klsjnh.domain.shared.EntityId;
 

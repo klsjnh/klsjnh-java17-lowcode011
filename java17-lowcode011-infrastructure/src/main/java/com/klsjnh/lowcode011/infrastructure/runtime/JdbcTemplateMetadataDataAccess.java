@@ -14,7 +14,7 @@ package com.klsjnh.lowcode011.infrastructure.runtime;
  *
  */
 
-import com.klsjnh.lowcode011.domain.MetadataDataAccessPort;
+import com.klsjnh.lowcode011.domain.metadata.MetadataDataAccessPort;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
